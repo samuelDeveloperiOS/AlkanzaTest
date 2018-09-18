@@ -11,7 +11,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreLocation
 
-class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
+class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, SettingsDelegate{
 
     var placesClient: GMSPlacesClient!
     let locationManager = CLLocationManager()
@@ -40,9 +40,14 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 13.0)
+        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 12.0)
         mapView.moveCamera(GMSCameraUpdate.setCamera(camera))
-        getDoctorPlaces(location: camera.target)
+    }
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        
+        let coordinate = mapView.projection.coordinate(for: mapView.center)
+        getDoctorPlaces(location: coordinate)
     }
     
     func getDoctorPlaces(location:CLLocationCoordinate2D) {
@@ -55,6 +60,8 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
                 
                 DispatchQueue.main.async { [unowned self] in
                     
+                    self.mapView.clear();
+                    
                     for place in (response?.results)!{
                         
                         let marker = GMSMarker()
@@ -64,10 +71,25 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
                         marker.map = self.mapView
                         self.markersArray.append(marker)
                     }
+                    
+                    self.mapView.reloadInputViews()
                 }
                 
             }
         }
+    }
+    
+    func settingsSaved(location: CLLocationCoordinate2D, radio: Double) -> Void{
+        
+    }
+    
+    @IBAction func userSettings(_ sender: UIButton) {
+        
+        let settingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: Bundle.main)
+        settingsViewController.modalPresentationStyle = .overFullScreen
+        settingsViewController.modalTransitionStyle = .crossDissolve
+        settingsViewController.delegate = self
+        self.present(settingsViewController, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

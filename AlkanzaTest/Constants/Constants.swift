@@ -15,6 +15,6 @@ class Constants: NSObject {
     static let GOOGLE_MAPS_KEY = "AIzaSyCN4KIBhl-3CKwNih-DPkh6BanVVYqxBpA"
     static let GOOGLE_PLACES_KEY = "AIzaSyBGOVvrHspeVjtaQsj0N6jqYdrwVsHsBQE"
     
-    static let URL_GOOGLE_PLACES_SEARCH = GOOGLE_PLACES_SERVER+"/nearbysearch/json?location=%f,%f&radius=50000&type=doctor&key=%@";
+    static let URL_GOOGLE_PLACES_SEARCH = GOOGLE_PLACES_SERVER+"/nearbysearch/json?location=%f,%f&radius=5000&type=doctor&key=%@";
     
 }
