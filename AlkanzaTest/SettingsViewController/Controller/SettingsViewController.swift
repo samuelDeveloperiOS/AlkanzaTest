@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import CoreLocation
+
+protocol SettingsDelegate:AnyObject{
+    
+    func settingsSaved(location: CLLocationCoordinate2D, radio: Double) -> Void;
+}
 
 class SettingsViewController: UIViewController {
 
+    var location = CLLocationCoordinate2D()
+    var radio:Double = 0.0
+    weak var delegate:SettingsDelegate?
+    
+    @IBOutlet weak var latTextField: UITextField!
+    @IBOutlet weak var lngTextField: UITextField!
+    @IBOutlet weak var radioTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if radio != 0.0 {
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +38,35 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func close(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func saveChanges(_ sender: UIButton) {
+        
+        
+        if delegate != nil && ((latTextField.text != "" && lngTextField.text != "") || radioTextField.text != "") {
+            
+            var lat = latTextField.text?.toDouble()
+            var lng = lngTextField.text?.toDouble()
+            var rad = radioTextField.text?.toDouble()
+            
+            if lat == nil {
+                lat = 0
+            }
+            
+            if lng == nil {
+                lng = 0
+            }
+            
+            if rad == nil {
+                rad = 0
+            }
+            
+            delegate?.settingsSaved(location: CLLocationCoordinate2DMake(lat!,lng!), radio: rad!)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
