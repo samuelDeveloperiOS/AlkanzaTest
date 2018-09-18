@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        window = UIWindow(frame:UIScreen.main.bounds)
+        let googleMapsViewController = GoogleMapsViewController(nibName: "GoogleMapsViewController", bundle: nil)
+        let navigationViewController = UINavigationController(rootViewController:googleMapsViewController)
+        navigationViewController.setNavigationBarHidden(true, animated: false);
+        window?.rootViewController = navigationViewController
+        window?.makeKeyAndVisible()
+        
+        GMSServices.provideAPIKey(Constants.GOOGLE_MAPS_KEY)
+        
         return true
     }
 
