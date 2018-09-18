@@ -22,17 +22,19 @@ class GetDoctorPlacesService: NSObject {
             
             if let error = error {
                 print(error.localizedDescription)
+                completion(nil, GooglePlacesResponse(results:[]))
                 return
             }
-            guard let data = responseData,
-                let response = try? JSONDecoder().decode(GooglePlacesResponse.self, from: data)
-                
-            else {
-                    
-                    completion(nil, GooglePlacesResponse(results:[]))
-                    return
+            
+            do{
+                //here dataResponse received from a network request
+                let response = try JSONDecoder().decode(GooglePlacesResponse.self, from: responseData!)
+                completion(nil, response)
+    
+            } catch let parsingError {
+                print("Error", parsingError)
+                completion(parsingError, nil)
             }
-            completion(nil, response)
             
         }
         task.resume()
