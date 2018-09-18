@@ -10,12 +10,13 @@
 		01CE40F0D42F0F93FCF81146 /* Pods_AlkanzaTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 495AAC9C2DE30FAC12EFDDAF /* Pods_AlkanzaTestTests.framework */; };
 		5EBB53FD1B94070CFD7AEFFF /* Pods_AlkanzaTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C879E1C0690EEAE09757E0FC /* Pods_AlkanzaTestUITests.framework */; };
 		7E262132215084FF00BE63BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E262131215084FF00BE63BD /* AppDelegate.swift */; };
-		7E262134215084FF00BE63BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E262133215084FF00BE63BD /* ViewController.swift */; };
-		7E262137215084FF00BE63BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E262135215084FF00BE63BD /* Main.storyboard */; };
 		7E2621392150850100BE63BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E2621382150850100BE63BD /* Assets.xcassets */; };
 		7E26213C2150850100BE63BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E26213A2150850100BE63BD /* LaunchScreen.storyboard */; };
 		7E2621472150850100BE63BD /* AlkanzaTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2621462150850100BE63BD /* AlkanzaTestTests.swift */; };
 		7E2621522150850100BE63BD /* AlkanzaTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2621512150850100BE63BD /* AlkanzaTestUITests.swift */; };
+		7E30485321508B980026318C /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E30485121508B980026318C /* GoogleMapsViewController.swift */; };
+		7E30485421508B980026318C /* GoogleMapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E30485221508B980026318C /* GoogleMapsViewController.xib */; };
+		7E304859215096C80026318C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E304858215096C80026318C /* Constants.swift */; };
 		8F7C266CA78AA765C2EDC28B /* Pods_AlkanzaTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3949BCA6B78B513512082C1D /* Pods_AlkanzaTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +46,6 @@
 		69E93C556A6EE9DCE3D6C34E /* Pods-AlkanzaTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlkanzaTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlkanzaTestTests/Pods-AlkanzaTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E26212E215084FF00BE63BD /* AlkanzaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlkanzaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E262131215084FF00BE63BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E262133215084FF00BE63BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7E262136215084FF00BE63BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E2621382150850100BE63BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E26213B2150850100BE63BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E26213D2150850100BE63BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +55,9 @@
 		7E26214D2150850100BE63BD /* AlkanzaTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlkanzaTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2621512150850100BE63BD /* AlkanzaTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlkanzaTestUITests.swift; sourceTree = "<group>"; };
 		7E2621532150850100BE63BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E30485121508B980026318C /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		7E30485221508B980026318C /* GoogleMapsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapsViewController.xib; sourceTree = "<group>"; };
+		7E304858215096C80026318C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9C5ACC62861503EA9EFE275E /* Pods-AlkanzaTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlkanzaTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlkanzaTestTests/Pods-AlkanzaTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C879E1C0690EEAE09757E0FC /* Pods_AlkanzaTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlkanzaTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA62326537704FE117E2060 /* Pods-AlkanzaTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlkanzaTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlkanzaTestUITests/Pods-AlkanzaTestUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,9 +116,9 @@
 		7E262130215084FF00BE63BD /* AlkanzaTest */ = {
 			isa = PBXGroup;
 			children = (
-				7E262131215084FF00BE63BD /* AppDelegate.swift */,
-				7E262133215084FF00BE63BD /* ViewController.swift */,
-				7E262135215084FF00BE63BD /* Main.storyboard */,
+				7E30484F21508B610026318C /* AppDelegate */,
+				7E304857215096B30026318C /* Constants */,
+				7E30485021508B710026318C /* GoogleMapsView */,
 				7E2621382150850100BE63BD /* Assets.xcassets */,
 				7E26213A2150850100BE63BD /* LaunchScreen.storyboard */,
 				7E26213D2150850100BE63BD /* Info.plist */,
@@ -140,6 +142,47 @@
 				7E2621532150850100BE63BD /* Info.plist */,
 			);
 			path = AlkanzaTestUITests;
+			sourceTree = "<group>";
+		};
+		7E30484F21508B610026318C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7E262131215084FF00BE63BD /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7E30485021508B710026318C /* GoogleMapsView */ = {
+			isa = PBXGroup;
+			children = (
+				7E30485521508B9F0026318C /* Controller */,
+				7E30485621508BA60026318C /* View */,
+			);
+			name = GoogleMapsView;
+			sourceTree = "<group>";
+		};
+		7E30485521508B9F0026318C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7E30485121508B980026318C /* GoogleMapsViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7E30485621508BA60026318C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E30485221508B980026318C /* GoogleMapsViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7E304857215096B30026318C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7E304858215096C80026318C /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		93DB49610BFB5FC8933A1EFD /* Pods */ = {
@@ -275,8 +318,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E26213C2150850100BE63BD /* LaunchScreen.storyboard in Resources */,
+				7E30485421508B980026318C /* GoogleMapsViewController.xib in Resources */,
 				7E2621392150850100BE63BD /* Assets.xcassets in Resources */,
-				7E262137215084FF00BE63BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,15 +345,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AlkanzaTestTests-checkManifestLockResult.txt",
 			);
@@ -324,15 +363,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AlkanzaTestUITests-checkManifestLockResult.txt",
 			);
@@ -346,15 +381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlkanzaTest/Pods-AlkanzaTest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
@@ -368,16 +399,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlkanzaTest/Pods-AlkanzaTest-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -392,15 +419,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AlkanzaTest-checkManifestLockResult.txt",
 			);
@@ -416,8 +439,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E262134215084FF00BE63BD /* ViewController.swift in Sources */,
+				7E30485321508B980026318C /* GoogleMapsViewController.swift in Sources */,
 				7E262132215084FF00BE63BD /* AppDelegate.swift in Sources */,
+				7E304859215096C80026318C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,14 +477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7E262135215084FF00BE63BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7E262136215084FF00BE63BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7E26213A2150850100BE63BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
