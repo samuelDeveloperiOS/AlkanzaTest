@@ -18,6 +18,8 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
     
     var markersArray = Array<GMSMarker>()
     
+    var radio:Int = 5000
+    
     @IBOutlet weak var mapView: GMSMapView!
     
     override func viewDidLoad() {
@@ -45,14 +47,13 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
     }
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        
         let coordinate = mapView.projection.coordinate(for: mapView.center)
-        getDoctorPlaces(location: coordinate)
+        getDoctorPlaces(location: coordinate, radio: self.radio)
     }
     
-    func getDoctorPlaces(location:CLLocationCoordinate2D) {
+    func getDoctorPlaces(location: CLLocationCoordinate2D, radio: Int) {
 
-        GetDoctorPlacesService.getDoctorPlaces(location: location) { (error: Error?, response:GooglePlacesResponse?) in
+        GetDoctorPlacesService.getDoctorPlaces(location: location, radio: radio) { (error: Error?, response:GooglePlacesResponse?) in
             
             if error == nil {
                 
@@ -79,15 +80,27 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
         }
     }
     
-    func settingsSaved(location: CLLocationCoordinate2D, radio: Double) -> Void{
+    func settingsSaved(location: CLLocationCoordinate2D, radio: Int) -> Void{
         
+        if radio != 0 {
+            self.radio = radio
+        }
+        
+        if location.latitude != 0 && location.longitude != 0 {
+            let camera = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 12.0)
+            mapView.moveCamera(GMSCameraUpdate.setCamera(camera))
+        }
     }
     
     @IBAction func userSettings(_ sender: UIButton) {
         
+        let coordinate = mapView.projection.coordinate(for: mapView.center)
+        
         let settingsViewController = SettingsViewController(nibName: "SettingsViewController", bundle: Bundle.main)
         settingsViewController.modalPresentationStyle = .overFullScreen
         settingsViewController.modalTransitionStyle = .crossDissolve
+        settingsViewController.location = coordinate
+        settingsViewController.radio = self.radio
         settingsViewController.delegate = self
         self.present(settingsViewController, animated: true, completion: nil)
     }

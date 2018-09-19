@@ -11,9 +11,9 @@ import CoreLocation
 
 class GetDoctorPlacesService: NSObject {
 
-    static func getDoctorPlaces(location:CLLocationCoordinate2D, completion:@escaping (_ error: Error?, _ response: GooglePlacesResponse?) -> Void) {
+    static func getDoctorPlaces(location:CLLocationCoordinate2D, radio:Int, completion:@escaping (_ error: Error?, _ response: GooglePlacesResponse?) -> Void) {
         
-        let urlString = String.init(format: Constants.URL_GOOGLE_PLACES_SEARCH, location.latitude, location.longitude, Constants.GOOGLE_PLACES_KEY) 
+        let urlString = String.init(format: Constants.URL_GOOGLE_PLACES_SEARCH, location.latitude, location.longitude, radio, Constants.GOOGLE_PLACES_KEY)
         guard let url = URL(string: urlString) else { return }
         
         let session = URLSession(configuration: .default)
