@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,9 +26,22 @@
                     <rect key="frame" x="-0.5" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqm-Xb-FiE">
+                    <rect key="frame" x="155.5" y="291.5" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="KOc-Bn-4Qq"/>
+                        <constraint firstAttribute="width" secondItem="Pqm-Xb-FiE" secondAttribute="height" multiplier="1:1" id="f4J-Pr-G5l"/>
+                    </constraints>
+                    <state key="normal" image="userPin"/>
+                    <connections>
+                        <action selector="userSettings:" destination="-1" eventType="touchUpInside" id="vUS-Q6-UwM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Pqm-Xb-FiE" firstAttribute="centerY" secondItem="Ci6-vq-WGM" secondAttribute="centerY" constant="-20" id="CtS-BQ-bNf"/>
+                <constraint firstItem="Pqm-Xb-FiE" firstAttribute="centerX" secondItem="Ci6-vq-WGM" secondAttribute="centerX" id="NeA-33-sLM"/>
                 <constraint firstItem="Ci6-vq-WGM" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="fVF-fs-k8e"/>
                 <constraint firstItem="Ci6-vq-WGM" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="gAn-it-P3i"/>
                 <constraint firstItem="Ci6-vq-WGM" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" id="oyC-to-ICh"/>
@@ -36,4 +50,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="userPin" width="423" height="423"/>
+    </resources>
 </document>
