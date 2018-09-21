@@ -120,6 +120,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
     func calculate(distanceArray:[Int]) -> Void {
         
         CalculateMinimumBL.calculate(distanceArray: distanceArray) { (position:Int, minimum:Double) in
+            
             DispatchQueue.main.async { [unowned self] in
                 let marker = self.markersArray[position]
                 marker.icon = GMSMarker.markerImage(with: UIColor.blue)
@@ -128,28 +129,6 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
             }
             
         }
-//        var minimum:Double = Double.infinity
-//        var position:Int = 0
-//
-//        var counter:Int = 0
-//
-//        for i in distanceArray{
-//
-//            var minimumAux:Double = 0
-//
-//            for j in distanceArray{
-//                minimumAux += Double(abs(i-j))
-//            }
-//
-//            if minimumAux<minimum{
-//                minimum = minimumAux
-//                position = counter
-//            }
-//
-//            counter+=1
-//        }
-//
-//        return (position:position, minimum:minimum)
     }
 
     override func didReceiveMemoryWarning() {
