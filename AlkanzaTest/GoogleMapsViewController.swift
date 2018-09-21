@@ -21,6 +21,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
     var radio:Int = 5000
     
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var minimumLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
         
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
         mapView.camera = camera
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -61,6 +63,8 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
                 
                 DispatchQueue.main.async { [unowned self] in
                     
+                    var distanceArray = [Int]()
+                    
                     self.mapView.clear();
                     
                     for place in (response?.results)!{
@@ -71,9 +75,17 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
                         marker.snippet = place.address
                         marker.map = self.mapView
                         self.markersArray.append(marker)
+                        
+                        let placeCoordinate = CLLocation(latitude: place.geometry.location.latitude, longitude: place.geometry.location.longitude)
+                        let coordinate = self.mapView.projection.coordinate(for: self.mapView.center)
+                        let centerCoordinate = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                        
+                        let distanceInMeters = Int(placeCoordinate.distance(from: centerCoordinate))
+                        
+                        distanceArray.append(distanceInMeters)
                     }
                     
-                    self.mapView.reloadInputViews()
+                    self.calculate(distanceArray: distanceArray)
                 }
                 
             }
@@ -103,6 +115,41 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
         settingsViewController.radio = self.radio
         settingsViewController.delegate = self
         self.present(settingsViewController, animated: true, completion: nil)
+    }
+    
+    func calculate(distanceArray:[Int]) -> Void {
+        
+        CalculateMinimumBL.calculate(distanceArray: distanceArray) { (position:Int, minimum:Double) in
+            DispatchQueue.main.async { [unowned self] in
+                let marker = self.markersArray[position]
+                marker.icon = GMSMarker.markerImage(with: UIColor.blue)
+                self.minimumLabel.text = String(minimum)
+                self.mapView.reloadInputViews()
+            }
+            
+        }
+//        var minimum:Double = Double.infinity
+//        var position:Int = 0
+//
+//        var counter:Int = 0
+//
+//        for i in distanceArray{
+//
+//            var minimumAux:Double = 0
+//
+//            for j in distanceArray{
+//                minimumAux += Double(abs(i-j))
+//            }
+//
+//            if minimumAux<minimum{
+//                minimum = minimumAux
+//                position = counter
+//            }
+//
+//            counter+=1
+//        }
+//
+//        return (position:position, minimum:minimum)
     }
 
     override func didReceiveMemoryWarning() {
