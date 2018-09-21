@@ -9,6 +9,10 @@
 import UIKit
 
 class CalculateMinimumBL: NSObject {
+    
+    /*
+     Despues de iterar en todos los casos donde todos los puntos asumen estados (balanceado/desbalanceado) me di cuenta que el minimo de la función siempre se encuentra cuando los conjuntos solo contienen un solo pundo desbalanceado o balanceado. Con lo cual optimizo el calculo tomando como referencia unicamente la diagonal principal en la matriz de casos.
+     */
 
     static func calculate(distanceArray:[Int], completion:(_ position:Int, _ minimum: Double) -> Void) {
         
