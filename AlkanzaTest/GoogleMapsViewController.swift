@@ -122,8 +122,11 @@ class GoogleMapsViewController: UIViewController, GMSMapViewDelegate, CLLocation
         CalculateMinimumBL.calculate(distanceArray: distanceArray) { (position:Int, minimum:Double) in
             
             DispatchQueue.main.async { [unowned self] in
-                let marker = self.markersArray[position]
-                marker.icon = GMSMarker.markerImage(with: UIColor.blue)
+                
+                if position < self.markersArray.count {
+                    let marker = self.markersArray[position]
+                    marker.icon = GMSMarker.markerImage(with: UIColor.blue)
+                }
                 self.minimumLabel.text = String(minimum)
                 self.mapView.reloadInputViews()
             }
